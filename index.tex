@@ -1,8 +1,13 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
 \usepackage[margin=1in]{geometry}
+\usepackage[nottoc]{tocbibind}
+\usepackage{graphicx}
+\usepackage{chngcntr}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\counterwithout{figure}{chapter}
 \linespread{1.5}
 \author{Grzegorz Kastelik}
 \title{Praca inżynierska}
@@ -12,60 +17,85 @@
     \maketitle
     \newpage
     \tableofcontents
-    \newpage
-    \section{Wstęp}
-        \subsection{Motywacja}
-        \input{./subsection/motivation}
-        \subsection{Platforma internetowa}
-        \input{./subsection/platform}
-        \subsection{Umowy}
-        \input{./subsection/contract}
-        \subsection{Cel pracy}
-        \input{./subsection/target}
-    \section{Specyfikacja}
-        \subsection{Słownik pojęć}
-        \subsection{Wymagania biznesowe}
-        \subsection{Wymagania funkcjonalne}
-        \subsection{Wymagania niefunkcjonalne}
-        \subsection{Reguły biznesowe}
-    \section{Użyte Technologie}
-        \subsection{Języki}
-            \subsubsection{PHP 7.4}
-            \subsubsection{JavaScript}
-            \subsubsection{HTML}
-            \subsubsection{SCSS}
-            \subsubsection{JSON}
-        \subsection{Główne frameworki}
-            \subsubsection{Laravel}
-            \subsubsection{Vue}
-            \subsubsection{VuetifyJs}
-            \subsubsection{VuetifyJs}
-    \section{Projekt systemu tworzenia umów}
-         \subsection{Opis działania systemu}
-         \subsection{Schemat bazodanowy}
-    \section{Opis platformy implementującej system}
-        \subsection{Platforma}
-            \subsubsection{Implementacja}
-            \subsubsection{Instrukcja użytkowania}
-        \subsection{API}
-            \subsubsection{Implementacja}
-            \subsubsection{Instrukcja użytkowania}
-            \subsubsection{Testy}
-    \section{Wykorzystane narzędzia i usługi}
-        \subsection{Narzędzia}
-            \subsubsection{PhpStorm}
-            \subsubsection{Git}
-            \subsubsection{Docker}
-            \subsubsection{Composer}
-            \subsubsection{NPM}
-            \subsubsection{System Linux Deepin}
-        \subsection{Usługi}
-            \subsubsection{Hosting MyDevil}
-            \subsubsection{Domena generatorumowy.pl}
-            \subsubsection{Jenkins}
-            \subsubsection{SSL}
-    \section{Podsumowanie oraz wnioski}
-    \section{Spis rysunków}
-    \section{Spis tabel}
-    \section{Bibliografia}
+    \chapter*{Wstęp}
+    \addcontentsline{toc}{chapter}{Wstęp}
+        \input{./pages/motivation}
+    \chapter*{Cel i zakres pracy}
+    \addcontentsline{toc}{chapter}{Cel i zakres pracy}
+        \input{./pages/target}
+    \chapter{Specyfikacja}
+        \section{Umowy}
+            \input{./pages/specyfication/contract}
+        \section{Platforma internetowa}
+            \input{./pages/specyfication/platform}
+        \section{Słownik pojęć}
+            \input{./pages/specyfication/dictionary}
+        \section{Wymagania biznesowe}
+            \input{./pages/specyfication/requirements-business}
+        \section{Wymagania funkcjonalne}
+            \input{./pages/specyfication/requirements-functional}
+        \section{Wymagania niefunkcjonalne}
+            \input{./pages/specyfication/requirements-no-functional}
+        \section{Reguły biznesowe}
+            \input{./pages/specyfication/rules-business}
+    \chapter{Uzyte technologie, narzędzia i usługi}
+        \input{./pages/technology/index}
+        \section{Języki}
+            \subsection{JSON}
+                \input{./pages/technology/language/json}
+            \subsection{SCSS}
+                \input{./pages/technology/language/scss}
+            \subsection{HTML}
+                \input{./pages/technology/language/html}
+            \subsection{JavaScript}
+                \input{./pages/technology/language/javascript}
+            \subsection{PHP 7.4}
+                \input{./pages/technology/language/php}
+        \section{Główne frameworki i biblioteki}
+            \subsection{Laravel}
+                \input{./pages/technology/frameworks/laravel}
+            \subsection{Vue}
+                \input{./pages/technology/frameworks/vue}
+            \subsection{VuetifyJs}
+                \input{./pages/technology/frameworks/vuetifyjs}
+            \subsection{DOMPDF}
+                \input{./pages/technology/frameworks/dompdf}
+        \section{Narzędzia}
+            \subsection{PhpStorm}
+                \input{./pages/technology/tools/phpstorm}
+            \subsection{Git}
+                \input{./pages/technology/tools/git}
+            \subsection{Docker}
+                \input{./pages/technology/tools/docker}
+            \subsection{Composer}
+                \input{./pages/technology/tools/composer}
+            \subsection{NPM}
+                \input{./pages/technology/tools/npm}
+            \subsection{System Linux Deepin}
+                \input{./pages/technology/tools/deepin}
+        \section{Usługi}
+            \subsection{VPS DigitalOcean}
+                \input{./pages/technology/services/digitalocean}
+            \subsection{Domena generatorumowy.pl}
+                \input{./pages/technology/services/domain}
+            \subsection{SSL}
+                \input{./pages/technology/services/ssl}
+            \subsection{Forge}
+                \input{./pages/technology/services/forge}
+            \subsection{Jenkins}
+                \input{./pages/technology/services/jenkins}
+    \chapter{Projekt systemu tworzenia umów}
+         \section{Opis działania systemu}
+         \section{Schemat bazodanowy}
+    \chapter{Opis platformy implementującej system}
+        \section{Platforma}
+            \subsection{Implementacja}
+            \subsection{Instrukcja użytkowania}
+        \section{API}
+            \subsection{Implementacja}
+            \subsection{Instrukcja użytkowania}
+            \subsection{Testy}
+    \chapter{Podsumowanie oraz wnioski}
+    \listoffigures
+    \input{./pages/bib.tex}
 \end{document}
